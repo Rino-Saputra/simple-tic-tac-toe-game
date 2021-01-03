@@ -106,10 +106,10 @@ int user_input(int* user_1,int* user_2,char* t)
             win=get_win(t);//get return value
         }
         ///////////
-        if(win==1||win==2||full_cell==9){
+        if(win==1||win==2||full_cell==1){
             con=0;
             break;}
- 
+
         label_2:
         cout<<"user 2: ";
         cin>>*user_2;
@@ -133,7 +133,7 @@ int user_input(int* user_1,int* user_2,char* t)
             win=get_win(t);//get return value
         }
         ////////////
-        if(win==1||win==2||full_cell==9)
+        if(win==1||win==2||full_cell==1)
             con=0;
         ind_user++;
     }
@@ -197,14 +197,15 @@ int full_sm(char* ful,int p1[],int p2[],int& c_arr)
 {
     int i;
     int lim=0;
- 
+
     for(i=0;i<10;i++)
     {
         if(ful[i]!=NULL)
             lim++;
     }
-    if(lim==9)
-        return 1;//cell is full
+    
+    if(lim==8)
+        i=1;//cell is full
     //if user input same other user cell
     for(i=0;i<5;i++)
     {
@@ -214,4 +215,5 @@ int full_sm(char* ful,int p1[],int p2[],int& c_arr)
                 c_arr=1;
         }
     }
+    return i;
 }
